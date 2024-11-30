@@ -10,7 +10,13 @@ import UIKit
 extension Typography {
     public static func font(style: Attributes.TypoStyle, weight: Font.Weight) -> UIFont {
         let font = Font.ButtwinkFont(name: .Pretendard, weight: weight)
-        return UIFont(name: font.fileName, size: style.fontSize)!
+        if let loadedFont = UIFont(name: font.fileName, size: style.fontSize) {
+              return loadedFont
+          } else {
+              // 폰트를 로드할 수 없을 때 기본 폰트를 반환하거나 로그를 남깁니다.
+              print("폰트 로딩 실패: \(font.fileName)")
+              return UIFont.systemFont(ofSize: style.fontSize)
+          }
     }
     
     public static func build(
