@@ -13,8 +13,6 @@ extension Typography {
         if let loadedFont = UIFont(name: font.fileName, size: style.fontSize) {
               return loadedFont
           } else {
-              // 폰트를 로드할 수 없을 때 기본 폰트를 반환하거나 로그를 남깁니다.
-              print("폰트 로딩 실패: \(font.fileName)")
               return UIFont.systemFont(ofSize: style.fontSize)
           }
     }

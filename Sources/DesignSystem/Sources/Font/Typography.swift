@@ -23,13 +23,21 @@ public enum Typography {
 
 extension Typography.Attributes {
     public enum Weight: String {
+        case extraBold
         case bold
         case medium
+        case regular
+        case semibold
+        case thin
         
         public var rawValue: String {
             switch self {
             case .bold: return "Bold"
             case .medium: return "Medium"
+            case .extraBold: return "ExtraBold"
+            case .regular: return "Regular"
+            case .semibold: return "SemiBold"
+            case .thin: return "Thin"
             }
         }
     }

@@ -21,6 +21,12 @@ enum Pallete: String {
     case gray800
     case gray900
     
+    case green_dark
+    case green_bright
+    case gray_semiDark
+    case gray_dark
+    case gray_bright
+    
     case green50
     case green100
     case green150

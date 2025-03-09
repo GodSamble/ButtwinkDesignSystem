@@ -9,31 +9,49 @@ import UIKit
 
 public extension UIImage {
     enum Icon {
-        public static let feed              = UIImage(name: "ic_feed")
-        public static let mypage            = UIImage(name: "ic_mypage")
-        public static let upload_photo      = UIImage(name: "upload_photo")
-        public static let next              = UIImage(name: "ic_next")
-        public static let link              = UIImage(name: "ic_link")
-        public static let apple             = UIImage(name: "ic_apple")
-        public static let kakao             = UIImage(name: "ic_kakao")
-        public static let info              = UIImage(name: "ic_info")
-        public static let pen               = UIImage(name: "ic_pen")
-        public static let success           = UIImage(name: "ic_success")
-        public static let fail              = UIImage(name: "ic_fail")
-        public static let alarm_default     = UIImage(name: "ic_alarm_default")
-        public static let alarm_variant     = UIImage(name: "ic_alarm_variant")
+        public static let chart               = UIImage(name: "ic_chart")
+        public static let complete            = UIImage(name: "ic_complete")
+        public static let fail                = UIImage(name: "ic_fail")
+        public static let feed                = UIImage(name: "ic_feed")
+        public static let info                = UIImage(name: "ic_info")
+        public static let inform              = UIImage(name: "ic_inform")
+        public static let like                = UIImage(name: "ic_like")
+        public static let link                = UIImage(name: "ic_link")
+        public static let list                = UIImage(name: "ic_list")
+        public static let mail                = UIImage(name: "ic_mail")
+        public static let mypage              = UIImage(name: "ic_mypage")
+        public static let next                = UIImage(name: "ic_next")
+        public static let pen                 = UIImage(name: "ic_pen")
+        public static let play                = UIImage(name: "ic_play")
+        public static let player              = UIImage(name: "ic_player")
+        public static let runtime             = UIImage(name: "ic_runtime")
+        public static let star                = UIImage(name: "ic_star")
+        public static let success             = UIImage(name: "ic_success")
+        public static let teacher             = UIImage(name: "ic_teacher")
+        public static let unlock              = UIImage(name: "ic_unlock")
     }
  
-    enum Sample {
-        public static let sample1 = UIImage(name: "sample")
+    enum Img {
+        public static let sample              = UIImage(name: "sample")
+        public static let kakaoLogin          = UIImage(name: "kakaoLogin")
+        public static let appleLogin          = UIImage(name: "appleLogin")
+        public static let bdink               = UIImage(name: "bdink")
     }
     
     enum Btn {
-        public static let close     = UIImage(name: "btn_close")
-        public static let back      = UIImage(name: "btn_back")
-        public static let floating  = UIImage(name: "btn_floating")
-        public static let more  = UIImage(name: "btn_more")
-        public static let setting  = UIImage(name: "btn_setting")
+        public static let alarm_default       = UIImage(name: "btn_alarm_default")
+        public static let alarm_variant       = UIImage(name: "btn_alarm_variant")
+        public static let back                = UIImage(name: "btn_back")
+        public static let bookmark            = UIImage(name: "btn_bookmark")
+        public static let check_blank         = UIImage(name: "btn_check_blank")
+        public static let check_green         = UIImage(name: "btn_check_green")
+        public static let close               = UIImage(name: "btn_close")
+        public static let edit                = UIImage(name: "btn_edit")
+        public static let floating            = UIImage(name: "btn_floating")
+        public static let left                = UIImage(name: "btn_left")
+        public static let more                = UIImage(name: "btn_more")
+        public static let setting             = UIImage(name: "btn_setting")
+        public static let share               = UIImage(name: "btn_share")
     }
 }
 
