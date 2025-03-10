@@ -38,7 +38,7 @@ public final class WIMainNavigationBar: UIView {
         self.backgroundColor = .buttwink_gray0
         bottomSeparatorView.backgroundColor = .buttwink_gray200
         
-        alarmButton.setImage(.Icon.alarm_default, for: .normal)
+        alarmButton.setImage(.Btn.alarm_default, for: .normal)
         alarmButton.addTarget(self, action: #selector(alarmButtonTapped), for: .touchUpInside)
     }
     
@@ -73,9 +73,9 @@ extension WIMainNavigationBar {
         var icon: UIImage? {
             switch self {
             case .defaultAlarm:
-                return .Icon.alarm_default
+                return .Btn.alarm_default
             case .newAlarm:
-                return .Icon.alarm_variant
+                return .Btn.alarm_variant
             }
         }
     }
