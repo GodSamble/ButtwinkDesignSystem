@@ -30,7 +30,7 @@ public extension UIImage {
         public static let teacher             = UIImage(name: "ic_teacher")
         public static let unlock              = UIImage(name: "ic_unlock")
         public static let teachers            = UIImage(name: "ic_teachers")
-        public static let calendar            = UIImage(name: "calendar")
+        public static let calendar            = UIImage(name: "ic_calendar")
         public static let videos              = UIImage(name: "ic_videos")
         public static let mypage_ver2         = UIImage(name: "ic_mypage_ver2")
     }
