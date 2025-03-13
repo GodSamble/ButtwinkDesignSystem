@@ -22,7 +22,7 @@ public extension UIColor {
     @nonobjc static var buttwink_gray900    = UIColor(pallete: .gray900)
     
     @nonobjc static var bdink_green_dark    = UIColor(pallete: .green_dark)
-    @nonobjc static var bdink_grren_bright  = UIColor(pallete: .green_bright)
+    @nonobjc static var bdink_green_bright  = UIColor(pallete: .green_bright)
     @nonobjc static var bdink_gray_dark     = UIColor(pallete: .gray_dark)
     @nonobjc static var bdink_gray_semiDark = UIColor(pallete: .gray_semiDark)
     @nonobjc static var bdink_gray_bright   = UIColor(pallete: .gray_bright)
