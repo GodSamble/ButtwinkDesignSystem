@@ -50,13 +50,13 @@ public final class WINavigationBar: UIView {
 
 extension WINavigationBar {
     private func setUI() {
-        self.backgroundColor = .buttwink_gray0
-        bottomSeparatorView.backgroundColor = .buttwink_gray200
+        self.backgroundColor = .bdink_gray_dark
+        bottomSeparatorView.backgroundColor = .buttwink_gray0
         bottomSeparatorView.isHidden = true
         leftButton.setImage(leftBarItem?.icon, for: .normal)
-        leftButton.tintColor = .buttwink_gray900
+        leftButton.tintColor = .buttwink_gray0
         rightButton.setImage(rightBarItem?.icon, for: .normal)
-        rightButton.tintColor = .buttwink_gray900
+        rightButton.tintColor = .buttwink_gray0
         titleLabel.setText(title, attributes: Const.titleAttributes)
     }
     
@@ -89,7 +89,7 @@ private extension WINavigationBar.Const {
     static let titleAttributes = Typography.Attributes(
         style: .headLine4,
         weight: .bold,
-        textColor: .buttwink_gray900
+        textColor: .buttwink_gray0
     )
 }
 
