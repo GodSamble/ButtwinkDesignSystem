@@ -21,13 +21,18 @@ let package = Package(
             url: "https://github.com/airbnb/lottie-ios.git",
             .upToNextMajor(from: "4.2.0")
         ),
+        .package(
+            url: "https://github.com/devxoul/Then",
+            .upToNextMajor(from: "3.0.0")
+        ),
     ],
     targets: [
         .target(
             name: "DesignSystem",
             dependencies: [
                 .product(name: "SnapKit", package: "SnapKit"),
-                .product(name: "Lottie", package: "lottie-ios")
+                .product(name: "Lottie", package: "lottie-ios"),
+                .product(name: "Then", package: "Then")
             ],
             resources: [.process("Resources")]
         ),

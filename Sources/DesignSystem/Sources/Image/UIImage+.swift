@@ -33,12 +33,20 @@ public extension UIImage {
         public static let calendar            = UIImage(name: "ic_calendar")
         public static let videos              = UIImage(name: "ic_videos")
         public static let mypage_ver2         = UIImage(name: "ic_mypage_ver2")
+        public static let circle_warning      = UIImage(name: "ic_circle_warning")
+        public static let octagon_check       = UIImage(name: "ic_octagon_check")
+        public static let note_edit           = UIImage(name: "ic_note_edit")
+        public static let chevron_left        = UIImage(name: "ic_chevron_left")
+        public static let clock_loader        = UIImage(name: "ic_clock_loader")
+        public static let check_big           = UIImage(name: "ic_check_big")
+        public static let mail_white          = UIImage(name: "ic_mail_white")
+        public static let ic_profile          = UIImage(name: "ic_profile")
     }
  
     enum Img {
         public static let sample              = UIImage(name: "sample")
-        public static let kakaoLogin          = UIImage(name: "kakaoLogin")
-        public static let appleLogin          = UIImage(name: "appleLogin")
+        public static let kakaoLogin          = UIImage(name: "KakaoLogin")
+        public static let appleLogin          = UIImage(name: "AppleLogin")
         public static let bdink               = UIImage(name: "bdink")
     }
     
