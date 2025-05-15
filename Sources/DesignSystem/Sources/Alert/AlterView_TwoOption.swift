@@ -139,6 +139,10 @@ public final class AlertView_TwoOption: BaseView {
         return submitButton
     }
     
+    public func getSpecialButton() -> UIButton {
+        return specialButton
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
