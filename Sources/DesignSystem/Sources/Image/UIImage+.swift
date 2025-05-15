@@ -35,6 +35,7 @@ public extension UIImage {
         public static let mypage_ver2         = UIImage(name: "ic_mypage_ver2")
         public static let circle_warning      = UIImage(name: "ic_circle_warning")
         public static let octagon_check       = UIImage(name: "ic_octagon_check")
+        public static let octagon_check_green = UIImage(name: "ic_octagon_check_green")
         public static let note_edit           = UIImage(name: "ic_note_edit")
         public static let chevron_left        = UIImage(name: "ic_chevron_left")
         public static let clock_loader        = UIImage(name: "ic_clock_loader")

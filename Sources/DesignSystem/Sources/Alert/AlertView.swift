@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class AlertView: BaseView {
+public final class AlertView: BaseView {
     
     // MARK: - UI Components
 
@@ -17,22 +17,21 @@ final class AlertView: BaseView {
     private let subTitleLabel = UILabel()
     private let submitButton = UIButton()
     
-    
     private var alertType: AlertType
     
-    enum AlertType {
+    public enum AlertType {
         case report
         case fail
     }
     
-    init(frame: CGRect, alertType: AlertView.AlertType) {
+    public init(frame: CGRect, alertType: AlertView.AlertType) {
         self.alertType = alertType
         super.init(frame: frame)
     }
     
     // MARK: - Set UIComponents
     
-    override func setStyles() {
+    public override func setStyles() {
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
 
         containerView.backgroundColor = UIColor(hex: "#3E3E3E")
@@ -67,7 +66,7 @@ final class AlertView: BaseView {
     
     // MARK: - Layout Helper
     
-    override func setLayout() {
+    public override func setLayout() {
         addSubview(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(subTitleLabel)
@@ -99,7 +98,7 @@ final class AlertView: BaseView {
     
     // MARK: - Methods
     
-    func getSubmitButton() -> UIButton {
+    public func getSubmitButton() -> UIButton {
         return submitButton
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class AlertView_TwoOption: BaseView {
+public final class AlertView_TwoOption: BaseView {
     
     // MARK: - UI Components
 
@@ -20,20 +20,20 @@ final class AlertView_TwoOption: BaseView {
     
     private var alertType: AlertType_Two_Option
     
-    enum AlertType_Two_Option {
+    public enum AlertType_Two_Option {
         case refund
         case logout
         case withDraw
     }
     
-    init(frame: CGRect, alertType: AlertView_TwoOption.AlertType_Two_Option) {
+    public init(frame: CGRect, alertType: AlertView_TwoOption.AlertType_Two_Option) {
         self.alertType = alertType
         super.init(frame: frame)
     }
     
     // MARK: - Set UIComponents
     
-    override func setStyles() {
+    public override func setStyles() {
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
 
         containerView.backgroundColor = UIColor(hex: "#3E3E3E")
@@ -91,13 +91,11 @@ final class AlertView_TwoOption: BaseView {
         submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         submitButton.backgroundColor = UIColor(hex: "#83AC66")
         submitButton.layer.cornerRadius = 3
-        
-
     }
     
     // MARK: - Layout Helper
     
-    override func setLayout() {
+    public override func setLayout() {
         addSubview(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(subTitleLabel)
@@ -137,7 +135,7 @@ final class AlertView_TwoOption: BaseView {
     
     // MARK: - Methods
     
-    func getSubmitButton() -> UIButton {
+    public func getSubmitButton() -> UIButton {
         return submitButton
     }
     
