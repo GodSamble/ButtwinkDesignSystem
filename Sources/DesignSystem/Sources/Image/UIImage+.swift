@@ -43,13 +43,6 @@ public extension UIImage {
         public static let check_big           = UIImage(name: "ic_check_big")
         public static let mail_white          = UIImage(name: "ic_mail_white")
         public static let ic_profile          = UIImage(name: "ic_profile")
-        public static let play_white          = UIImage(name: "ic_play_white")
-        public static let skip_backward       = UIImage(name: "ic_skip_backward")
-        public static let skip_forward        = UIImage(name: "ic_skip_forward")
-        public static let pause               = UIImage(name: "ic_pause")
-        public static let cc_on               = UIImage(name: "ic_CC_on")
-        public static let cc_off              = UIImage(name: "ic_CC_off")
-        public static let option              = UIImage(name: "ic_option")
     }
  
     enum Img {
@@ -76,6 +69,15 @@ public extension UIImage {
         public static let more                = UIImage(name: "btn_more")
         public static let setting             = UIImage(name: "btn_setting")
         public static let share               = UIImage(name: "btn_share")
+        //MARK: 이 밑으론 콜러스 플레이어에 사용되는 UI버튼
+        public static let play_white          = UIImage(name: "btn_play_white")
+        public static let skip_backward       = UIImage(name: "btn_skip_backward")
+        public static let skip_forward        = UIImage(name: "btn_skip_forward")
+        public static let pause               = UIImage(name: "btn_pause")
+        public static let cc_on               = UIImage(name: "btn_CC_on")
+        public static let cc_off              = UIImage(name: "btn_CC_off")
+        public static let option              = UIImage(name: "btn_option")
+        public static let screen_full         = UIImage(name: "btn_screen_full")
     }
 }
 
