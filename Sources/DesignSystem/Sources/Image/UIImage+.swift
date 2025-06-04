@@ -53,6 +53,7 @@ public extension UIImage {
         public static let kakaoLogin          = UIImage(name: "KakaoLogin")
         public static let appleLogin          = UIImage(name: "AppleLogin")
         public static let bdink               = UIImage(name: "bdink")
+        public static let bdink_icon          = UIImage(name: "Bdink_Icon")
         public static let bdink_gray          = UIImage(name: "bdink_gray")
     }
     
