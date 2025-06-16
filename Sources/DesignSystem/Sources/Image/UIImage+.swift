@@ -83,6 +83,7 @@ public extension UIImage {
         public static let cc_off              = UIImage(name: "btn_CC_off")
         public static let option              = UIImage(name: "btn_option")
         public static let screen_full         = UIImage(name: "btn_screen_full")
+        public static let profile             = UIImage(name: "btn_profile")
     }
 }
 
