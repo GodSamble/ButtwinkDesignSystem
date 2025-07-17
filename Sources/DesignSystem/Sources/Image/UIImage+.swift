@@ -55,6 +55,7 @@ public extension UIImage {
         public static let bdink               = UIImage(name: "bdink")
         public static let bdink_icon          = UIImage(name: "Bdink_Icon")
         public static let bdink_gray          = UIImage(name: "bdink_gray")
+        public static let placeholder         = UIImage(name: "placeholder")
     }
     
     enum Btn {
