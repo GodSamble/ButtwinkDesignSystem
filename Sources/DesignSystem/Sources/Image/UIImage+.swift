@@ -77,6 +77,7 @@ public extension UIImage {
         public static let share               = UIImage(name: "btn_share")
         public static let arrow               = UIImage(name: "btn_arrow")
         public static let camera              = UIImage(name: "btn_camera")
+        public static let plus                = UIImage(name: "btn_plus")
         //MARK: 이 밑으론 콜러스 플레이어에 사용되는 UI버튼
         public static let play_white          = UIImage(name: "btn_play_white")
         public static let skip_backward       = UIImage(name: "btn_skip_backward")
