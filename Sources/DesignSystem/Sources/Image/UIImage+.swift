@@ -56,6 +56,7 @@ public extension UIImage {
         public static let bdink_icon          = UIImage(name: "Bdink_Icon")
         public static let bdink_gray          = UIImage(name: "bdink_gray")
         public static let placeholder         = UIImage(name: "placeholder")
+        public static let anatomy             = UIImage(name: "anatomy")
     }
     
     enum Btn {
@@ -78,6 +79,9 @@ public extension UIImage {
         public static let arrow               = UIImage(name: "btn_arrow")
         public static let camera              = UIImage(name: "btn_camera")
         public static let plus                = UIImage(name: "btn_plus")
+        public static let replace               = UIImage(name: "btn_replace")
+        public static let layers              = UIImage(name: "btn_layers")
+        public static let trash                = UIImage(name: "btn_trash")
         //MARK: 이 밑으론 콜러스 플레이어에 사용되는 UI버튼
         public static let play_white          = UIImage(name: "btn_play_white")
         public static let skip_backward       = UIImage(name: "btn_skip_backward")
