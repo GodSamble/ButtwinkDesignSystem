@@ -46,6 +46,7 @@ public extension UIImage {
         public static let subtitle            = UIImage(name: "ic_subtitle")
         public static let calendar_white      = UIImage(name: "ic_calendar_white")
         public static let chart_white         = UIImage(name: "ic_chart_white")
+        public static let check               = UIImage(name: "ic_check")
     }
  
     enum Img {
