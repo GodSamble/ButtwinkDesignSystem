@@ -16,10 +16,12 @@ public final class AlertView: BaseView {
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
     private let submitButton = UIButton()
+    let VolumeString = 0
     
     private var alertType: AlertType
     
     public enum AlertType {
+        case recordRegister
         case report
         case fail
     }
@@ -32,12 +34,35 @@ public final class AlertView: BaseView {
     // MARK: - Set UIComponents
     
     public override func setStyles() {
+        // 배경 블러 대신 반투명 검정
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
 
-        containerView.backgroundColor = UIColor(hex: "#3E3E3E")
+        // 컨테이너 색상
+        containerView.backgroundColor = UIColor(hex: "#2E2E2E")
         containerView.layer.cornerRadius = 20
-        
+
+        // 공통 타이틀 스타일
+        titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        subTitleLabel.numberOfLines = 0
+        subTitleLabel.textAlignment = .center
+
+        submitButton.layer.cornerRadius = 10
+        submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+
         switch alertType {
+            
+        case .recordRegister:
+            titleLabel.text = "기록이 저장됐습니다!"
+            titleLabel.textColor = UIColor(hex: "#FFFFFF")
+
+            subTitleLabel.text = "오늘 기록으로 \(VolumeString)kg 볼륨이 저장됐어요!\n대단한걸요!"
+            subTitleLabel.textColor = UIColor(hex: "#A8A8A8")
+
+            submitButton.setTitle("닫기", for: .normal)
+            submitButton.setTitleColor(.black, for: .normal)
+            submitButton.backgroundColor = UIColor(hex: "#82F80E")
+            
         case .report:
             titleLabel.text = "신고가 접수되었습니다"
             titleLabel.textColor = UIColor(hex: "#FFFFFF")
@@ -46,6 +71,12 @@ public final class AlertView: BaseView {
             subTitleLabel.text = "신고가 접수되어 조치될 예정입니다 감사합니다"
             subTitleLabel.textColor = UIColor(hex: "#FFFFFF")
             subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
+            
+            submitButton.setTitle("닫기", for: .normal)
+            submitButton.setTitleColor(UIColor(hex: "#FFFFFF"), for: .normal)
+            submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+            submitButton.backgroundColor = UIColor(hex: "#83AC66")
+            submitButton.layer.cornerRadius = 3
 
         case .fail:
             titleLabel.text = "결제 처리가 실패되었습니다."
@@ -55,14 +86,15 @@ public final class AlertView: BaseView {
             subTitleLabel.text = "다시 시도 바랍니다."
             subTitleLabel.textColor = UIColor(hex: "#FFFFFF")
             subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
+            
+            submitButton.setTitle("닫기", for: .normal)
+            submitButton.setTitleColor(UIColor(hex: "#FFFFFF"), for: .normal)
+            submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+            submitButton.backgroundColor = UIColor(hex: "#83AC66")
+            submitButton.layer.cornerRadius = 3
         }
-        
-        submitButton.setTitle("닫기", for: .normal)
-        submitButton.setTitleColor(UIColor(hex: "#FFFFFF"), for: .normal)
-        submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        submitButton.backgroundColor = UIColor(hex: "#83AC66")
-        submitButton.layer.cornerRadius = 3
     }
+
     
     // MARK: - Layout Helper
     
