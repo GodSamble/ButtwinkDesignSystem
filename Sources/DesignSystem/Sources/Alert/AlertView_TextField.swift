@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class CommonTextAlertView: BaseView {
+public final class CommonTextAlertView: BaseView {
 
     // MARK: - Type
     enum AlertType {
@@ -32,17 +32,17 @@ final class CommonTextAlertView: BaseView {
     var onCancelTapped: (() -> Void)?
 
     // MARK: - Init
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setupActions()
     }
 
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - UI Setup
-    override func setStyles() {
+    public override func setStyles() {
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
 
         container.do {
@@ -82,7 +82,7 @@ final class CommonTextAlertView: BaseView {
         }
     }
 
-    override func setLayout() {
+    public override func setLayout() {
         addSubview(container)
         container.addSubview(titleLabel)
         container.addSubview(textView)
