@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
-public final class CommonTextAlertView: BaseView {
+public final class CommonTextAlertView: UIView {
 
     // MARK: - Type
-    enum AlertType {
+    public enum AlertType {
         case question
         case answer
         case review
@@ -28,21 +28,23 @@ public final class CommonTextAlertView: BaseView {
     private let submitButton = UIButton()
 
     // MARK: - Callbacks
-    var onSubmit: ((String) -> Void)?
-    var onCancelTapped: (() -> Void)?
+    public var onSubmit: ((String) -> Void)?
+    public var onCancelTapped: (() -> Void)?
 
     // MARK: - Init
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    public init(type: AlertType) {
+        super.init(frame: UIScreen.main.bounds)
+        setupUI()
+        configure(type: type)
         setupActions()
     }
 
-    public required init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - UI Setup
-    public override func setStyles() {
+    private func setupUI() {
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
 
         container.do {
@@ -80,9 +82,7 @@ public final class CommonTextAlertView: BaseView {
             $0.backgroundColor = UIColor(hex: "#82F80E")
             $0.layer.cornerRadius = 3
         }
-    }
 
-    public override func setLayout() {
         addSubview(container)
         container.addSubview(titleLabel)
         container.addSubview(textView)
@@ -130,14 +130,16 @@ public final class CommonTextAlertView: BaseView {
 
     @objc private func cancelTapped() {
         onCancelTapped?()
+        removeFromSuperview()
     }
 
     @objc private func submitTapped() {
         onSubmit?(textView.text ?? "")
+        removeFromSuperview()
     }
 
     // MARK: - Configure
-    func configure(type: AlertType) {
+    private func configure(type: AlertType) {
         switch type {
         case .question:
             titleLabel.text = "200자 이내 작성가능하며, 강의자에게 피해를 주는 질문은 삭제 될 수 있습니다."
@@ -154,11 +156,11 @@ public final class CommonTextAlertView: BaseView {
         case .memo:
             titleLabel.text = "자유로운 메모장으로 이용가능합니다. 작성하신 메모는 캘린더에 저장됩니다."
             submitButton.setTitle("메모 등록하기", for: .normal)
-
         }
     }
 
-    func getText() -> String {
+    // MARK: - Public Access
+    public func getText() -> String {
         return textView.text ?? ""
     }
 }
