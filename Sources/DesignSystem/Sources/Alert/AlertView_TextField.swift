@@ -167,9 +167,4 @@ public final class CommonTextAlertView: UIView {
             submitButton.setTitle("메모 등록하기", for: .normal)
         }
     }
-
-    // MARK: - Public Access
-    public func getText() -> String {
-        return textView.text ?? ""
-    }
 }
