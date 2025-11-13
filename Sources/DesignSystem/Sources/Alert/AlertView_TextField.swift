@@ -44,6 +44,15 @@ public final class CommonTextAlertView: UIView {
     }
 
     // MARK: - UI Setup
+    
+    public func setText(_ text: String) {
+        textView.text = text
+    }
+
+    public func getText() -> String {
+        return textView.text ?? ""
+    }
+    
     private func setupUI() {
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
 
