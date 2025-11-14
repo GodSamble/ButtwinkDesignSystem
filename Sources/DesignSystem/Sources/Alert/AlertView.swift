@@ -9,131 +9,116 @@ import UIKit
 import SnapKit
 
 public final class AlertView: BaseView {
-    
-    // MARK: - UI Components
 
+    // MARK: - UI Components
     private let containerView = UIView()
-    private let titleLabel = UILabel()
-    private let subTitleLabel = UILabel()
-    private let submitButton = UIButton()
-    let VolumeString = 0
-    
+    private let _titleLabel = UILabel()
+    private let _subTitleLabel = UILabel()
+    private let _submitButton = UIButton()
+    public var volumeString = 0
+
     private var alertType: AlertType
-    
+
     public enum AlertType {
         case recordRegister
         case report
         case fail
     }
-    
+
     public init(frame: CGRect, alertType: AlertView.AlertType) {
         self.alertType = alertType
         super.init(frame: frame)
     }
-    
-    // MARK: - Set UIComponents
-    
-    public override func setStyles() {
-        // 배경 블러 대신 반투명 검정
-        backgroundColor = UIColor.black.withAlphaComponent(0.6)
 
-        // 컨테이너 색상
+    // MARK: - Set UIComponents
+    public override func setStyles() {
+        backgroundColor = UIColor.black.withAlphaComponent(0.6)
         containerView.backgroundColor = UIColor(hex: "#2E2E2E")
         containerView.layer.cornerRadius = 20
 
-        // 공통 타이틀 스타일
-        titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
-        subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
-        subTitleLabel.numberOfLines = 0
-        subTitleLabel.textAlignment = .center
+        _titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        _subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        _subTitleLabel.numberOfLines = 0
+        _subTitleLabel.textAlignment = .center
 
-        submitButton.layer.cornerRadius = 10
-        submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        _submitButton.layer.cornerRadius = 10
+        _submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
 
         switch alertType {
-            
         case .recordRegister:
-            titleLabel.text = "기록이 저장됐습니다!"
-            titleLabel.textColor = UIColor(hex: "#FFFFFF")
-
-            subTitleLabel.text = "오늘 기록으로 \(VolumeString)kg 볼륨이 저장됐어요!\n대단한걸요!"
-            subTitleLabel.textColor = UIColor(hex: "#A8A8A8")
-
-            submitButton.setTitle("닫기", for: .normal)
-            submitButton.setTitleColor(.black, for: .normal)
-            submitButton.backgroundColor = UIColor(hex: "#82F80E")
-            
+            _titleLabel.text = "기록이 저장됐습니다!"
+            _titleLabel.textColor = UIColor(hex: "#FFFFFF")
+            _subTitleLabel.text = "오늘 기록으로 \(volumeString)kg 볼륨이 저장됐어요!\n대단한걸요!"
+            _subTitleLabel.textColor = UIColor(hex: "#A8A8A8")
+            _submitButton.setTitle("닫기", for: .normal)
+            _submitButton.setTitleColor(.black, for: .normal)
+            _submitButton.backgroundColor = UIColor(hex: "#82F80E")
         case .report:
-            titleLabel.text = "신고가 접수되었습니다"
-            titleLabel.textColor = UIColor(hex: "#FFFFFF")
-            titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
-
-            subTitleLabel.text = "신고가 접수되어 조치될 예정입니다 감사합니다"
-            subTitleLabel.textColor = UIColor(hex: "#FFFFFF")
-            subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
-            
-            submitButton.setTitle("닫기", for: .normal)
-            submitButton.setTitleColor(UIColor(hex: "#FFFFFF"), for: .normal)
-            submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-            submitButton.backgroundColor = UIColor(hex: "#83AC66")
-            submitButton.layer.cornerRadius = 3
-
+            _titleLabel.text = "신고가 접수되었습니다"
+            _titleLabel.textColor = UIColor(hex: "#FFFFFF")
+            _subTitleLabel.text = "신고가 접수되어 조치될 예정입니다 감사합니다"
+            _subTitleLabel.textColor = UIColor(hex: "#FFFFFF")
+            _submitButton.setTitle("닫기", for: .normal)
+            _submitButton.setTitleColor(UIColor(hex: "#FFFFFF"), for: .normal)
+            _submitButton.backgroundColor = UIColor(hex: "#83AC66")
+            _submitButton.layer.cornerRadius = 3
         case .fail:
-            titleLabel.text = "결제 처리가 실패되었습니다."
-            titleLabel.textColor = UIColor(hex: "#FFFFFF")
-            titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
-
-            subTitleLabel.text = "다시 시도 바랍니다."
-            subTitleLabel.textColor = UIColor(hex: "#FFFFFF")
-            subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
-            
-            submitButton.setTitle("닫기", for: .normal)
-            submitButton.setTitleColor(UIColor(hex: "#FFFFFF"), for: .normal)
-            submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-            submitButton.backgroundColor = UIColor(hex: "#83AC66")
-            submitButton.layer.cornerRadius = 3
+            _titleLabel.text = "결제 처리가 실패되었습니다."
+            _titleLabel.textColor = UIColor(hex: "#FFFFFF")
+            _subTitleLabel.text = "다시 시도 바랍니다."
+            _subTitleLabel.textColor = UIColor(hex: "#FFFFFF")
+            _submitButton.setTitle("닫기", for: .normal)
+            _submitButton.setTitleColor(UIColor(hex: "#FFFFFF"), for: .normal)
+            _submitButton.backgroundColor = UIColor(hex: "#83AC66")
+            _submitButton.layer.cornerRadius = 3
         }
     }
 
-    
-    // MARK: - Layout Helper
-    
     public override func setLayout() {
         addSubview(containerView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(subTitleLabel)
-        containerView.addSubview(submitButton)
-        
+        containerView.addSubview(_titleLabel)
+        containerView.addSubview(_subTitleLabel)
+        containerView.addSubview(_submitButton)
+
         containerView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812)
             $0.width.equalTo(UIScreen.main.bounds.width * 280 / 375)
         }
-        
-        titleLabel.snp.makeConstraints {
+
+        _titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(42)
             $0.centerX.equalToSuperview()
         }
-        
-        subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(17)
+
+        _subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(_titleLabel.snp.bottom).offset(17)
             $0.centerX.equalToSuperview()
         }
-        
-        submitButton.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(20)
+
+        _submitButton.snp.makeConstraints {
+            $0.top.equalTo(_subTitleLabel.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(UIScreen.main.bounds.height * 37 / 812)
             $0.width.equalTo(UIScreen.main.bounds.width * 242 / 375)
         }
     }
-    
-    // MARK: - Methods
-    
-    public func getSubmitButton() -> UIButton {
-        return submitButton
+
+    // MARK: - Methods (Getter & Setter)
+    public var titleLabel: UILabel {
+        get { _titleLabel }
+        set { _titleLabel.text = newValue.text; _titleLabel.textColor = newValue.textColor }
     }
-    
+
+    public var subTitleLabel: UILabel {
+        get { _subTitleLabel }
+        set { _subTitleLabel.text = newValue.text; _subTitleLabel.textColor = newValue.textColor }
+    }
+
+    public var submitButton: UIButton {
+        get { _submitButton }
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

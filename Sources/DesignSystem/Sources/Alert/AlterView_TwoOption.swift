@@ -9,140 +9,121 @@ import UIKit
 import SnapKit
 
 public final class AlertView_TwoOption: BaseView {
-    
-    // MARK: - UI Components
 
+    // MARK: - UI Components
     private let containerView = UIView()
-    private let titleLabel = UILabel()
-    private let subTitleLabel = UILabel()
-    private let submitButton = UIButton()
-    private let specialButton = UIButton()
-    
+    private let _titleLabel = UILabel()
+    private let _subTitleLabel = UILabel()
+    private let _submitButton = UIButton()
+    private let _specialButton = UIButton()
+
     private var alertType: AlertType_Two_Option
-    
+
     public enum AlertType_Two_Option {
         case refund
         case logout
         case withDraw
+        case erase
     }
-    
+
     public init(frame: CGRect, alertType: AlertView_TwoOption.AlertType_Two_Option) {
         self.alertType = alertType
         super.init(frame: frame)
     }
-    
+
     // MARK: - Set UIComponents
-    
     public override func setStyles() {
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
-
-        containerView.backgroundColor = UIColor(hex: "#3E3E3E")
+        containerView.backgroundColor = UIColor(hex: "#202020")
         containerView.layer.cornerRadius = 20
-        
+
+        _titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        _subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        _subTitleLabel.textColor = UIColor(hex: "#808080")
+
+        _submitButton.layer.cornerRadius = 3
+        _submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        _submitButton.backgroundColor = UIColor(hex: "#E0E5EB")
+        _submitButton.setTitle("닫기", for: .normal)
+        _submitButton.setTitleColor(UIColor.black, for: .normal)
+
+        _specialButton.layer.cornerRadius = 3
+        _specialButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        _specialButton.setTitleColor(UIColor.black, for: .normal)
+        _specialButton.backgroundColor = UIColor(hex: "#82F80E")
+
         switch alertType {
         case .refund:
-            titleLabel.text = "환불 하시겠습니까?"
-            titleLabel.textColor = UIColor(hex: "#FFFFFF")
-            titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
-            
-            subTitleLabel.text = "환불을 진행하시겠어요?"
-            subTitleLabel.textColor = UIColor(hex: "#808080")
-            subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
-
-            specialButton.setTitle("환불하기", for: .normal)
-            specialButton.setTitleColor(UIColor(hex: "#758595"), for: .normal)
-            specialButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-            specialButton.backgroundColor = UIColor(hex: "#E0E5EB")
-            specialButton.layer.cornerRadius = 3
-
+            _titleLabel.text = "환불 하시겠습니까?"
+            _subTitleLabel.text = "환불을 진행하시겠어요?"
+            _specialButton.setTitle("환불하기", for: .normal)
         case .logout:
-            titleLabel.text = "로그아웃 하시겠어요?"
-            titleLabel.textColor = UIColor(hex: "#FFFFFF")
-            titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
-            
-            subTitleLabel.text = "버딩크 로그아웃 하시겠어요?"
-            subTitleLabel.textColor = UIColor(hex: "#808080")
-            subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
-
-            specialButton.setTitle("로그아웃", for: .normal)
-            specialButton.setTitleColor(UIColor(hex: "#758595"), for: .normal)
-            specialButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-            specialButton.backgroundColor = UIColor(hex: "#E0E5EB")
-            specialButton.layer.cornerRadius = 3
-            
+            _titleLabel.text = "로그아웃 하시겠어요?"
+            _subTitleLabel.text = "버딩크 로그아웃 하시겠어요?"
+            _specialButton.setTitle("로그아웃", for: .normal)
         case .withDraw:
-            titleLabel.text = "회원탈퇴 하시겠어요?"
-            titleLabel.textColor = UIColor(hex: "#FFFFFF")
-            titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
-            
-            subTitleLabel.text = "버딩크 회원탈퇴 하시겠어요?"
-            subTitleLabel.textColor = UIColor(hex: "#808080")
-            subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
-
-            specialButton.setTitle("회원탈퇴", for: .normal)
-            specialButton.setTitleColor(UIColor(hex: "#758595"), for: .normal)
-            specialButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-            specialButton.backgroundColor = UIColor(hex: "#E0E5EB")
-            specialButton.layer.cornerRadius = 3
+            _titleLabel.text = "회원탈퇴 하시겠어요?"
+            _subTitleLabel.text = "버딩크 회원탈퇴 하시겠어요?"
+            _specialButton.setTitle("회원탈퇴", for: .normal)
+        case .erase:
+            _titleLabel.text = "이 세트를 지우시겠어요?"
+            _subTitleLabel.text = "이 세트를 지우시겠어요?"
+            _specialButton.setTitle("세트지우기", for: .normal)
         }
-        
-        submitButton.setTitle("닫기", for: .normal)
-        submitButton.setTitleColor(UIColor(hex: "#FFFFFF"), for: .normal)
-        submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        submitButton.backgroundColor = UIColor(hex: "#83AC66")
-        submitButton.layer.cornerRadius = 3
     }
-    
-    // MARK: - Layout Helper
-    
+
     public override func setLayout() {
         addSubview(containerView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(subTitleLabel)
-        containerView.addSubview(specialButton)
-        containerView.addSubview(submitButton)
-        
+        containerView.addSubview(_titleLabel)
+        containerView.addSubview(_subTitleLabel)
+        containerView.addSubview(_specialButton)
+        containerView.addSubview(_submitButton)
+
         containerView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.height.equalTo(UIScreen.main.bounds.height * 235 / 812)
             $0.width.equalTo(UIScreen.main.bounds.width * 280 / 375)
         }
-        
-        titleLabel.snp.makeConstraints {
+
+        _titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(42)
             $0.centerX.equalToSuperview()
         }
-        
-        subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(9)
+
+        _subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(_titleLabel.snp.bottom).offset(9)
             $0.centerX.equalToSuperview()
         }
-        
-        specialButton.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(36)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(UIScreen.main.bounds.height * 37 / 812)
-            $0.width.equalTo(UIScreen.main.bounds.width * 242 / 375)
-        }
-        
-        submitButton.snp.makeConstraints {
-            $0.top.equalTo(specialButton.snp.bottom).offset(16)
+
+        _specialButton.snp.makeConstraints {
+            $0.top.equalTo(_subTitleLabel.snp.bottom).offset(36)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(UIScreen.main.bounds.height * 37 / 812)
             $0.width.equalTo(UIScreen.main.bounds.width * 242 / 375)
         }
+
+        _submitButton.snp.makeConstraints {
+            $0.top.equalTo(_specialButton.snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(UIScreen.main.bounds.height * 37 / 812)
+            $0.width.equalTo(UIScreen.main.bounds.width * 242 / 375)
+        }
     }
-    
-    // MARK: - Methods
-    
-    public func getSubmitButton() -> UIButton {
-        return submitButton
+
+    // MARK: - Getter & Setter
+    public var titleLabel: UILabel {
+        get { _titleLabel }
+        set { _titleLabel.text = newValue.text; _titleLabel.textColor = newValue.textColor }
     }
-    
-    public func getSpecialButton() -> UIButton {
-        return specialButton
+
+    public var subTitleLabel: UILabel {
+        get { _subTitleLabel }
+        set { _subTitleLabel.text = newValue.text; _subTitleLabel.textColor = newValue.textColor }
     }
-    
+
+    public var submitButton: UIButton { _submitButton }
+    public var specialButton: UIButton { _specialButton }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
