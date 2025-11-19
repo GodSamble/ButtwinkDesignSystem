@@ -82,9 +82,8 @@ public final class AlertView: BaseView {
 
         containerView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalTo(self.safeAreaLayoutGuide.snp.centerY)
-            $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812).offset(80)
-            $0.width.equalTo(UIScreen.main.bounds.width * 280 / 375)
+            $0.centerY.equalTo(self.safeAreaLayoutGuide.snp.centerY).offset(-80)
+            $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812)
         }
 
         _titleLabel.snp.makeConstraints {
