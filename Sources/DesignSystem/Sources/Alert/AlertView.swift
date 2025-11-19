@@ -9,41 +9,50 @@ import UIKit
 import SnapKit
 
 public final class AlertView: BaseView {
-
+    
     // MARK: - UI Components
     private let containerView = UIView()
     private let _titleLabel = UILabel()
     private let _subTitleLabel = UILabel()
     private let _submitButton = UIButton()
     public var volumeString = 0
-
+    
     private var alertType: AlertType
-
+    
     public enum AlertType {
         case recordRegister
         case report
         case fail
     }
-
+    
+    // MARK: - Init
     public init(frame: CGRect, alertType: AlertView.AlertType) {
         self.alertType = alertType
         super.init(frame: frame)
+        setStyles()
+        setLayout()
+        setupActions()
     }
-
-    // MARK: - Set UIComponents
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - UI Setup
     public override func setStyles() {
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
         containerView.backgroundColor = UIColor(hex: "#2E2E2E")
         containerView.layer.cornerRadius = 20
-
+        
         _titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        _titleLabel.textAlignment = .center
         _subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
-        _subTitleLabel.numberOfLines = 0
         _subTitleLabel.textAlignment = .center
-
+        _subTitleLabel.numberOfLines = 0
+        
         _submitButton.layer.cornerRadius = 10
         _submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-
+        
         switch alertType {
         case .recordRegister:
             _titleLabel.text = "기록이 저장됐습니다!"
@@ -73,29 +82,30 @@ public final class AlertView: BaseView {
             _submitButton.layer.cornerRadius = 3
         }
     }
-
+    
     public override func setLayout() {
         addSubview(containerView)
         containerView.addSubview(_titleLabel)
         containerView.addSubview(_subTitleLabel)
         containerView.addSubview(_submitButton)
-
+        
         containerView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalTo(self.safeAreaLayoutGuide.snp.centerY).offset(-80)
             $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812)
+            $0.width.equalTo(UIScreen.main.bounds.width * 280 / 375)
         }
-
+        
         _titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(42)
             $0.centerX.equalToSuperview()
         }
-
+        
         _subTitleLabel.snp.makeConstraints {
             $0.top.equalTo(_titleLabel.snp.bottom).offset(17)
             $0.centerX.equalToSuperview()
         }
-
+        
         _submitButton.snp.makeConstraints {
             $0.top.equalTo(_subTitleLabel.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
@@ -103,23 +113,18 @@ public final class AlertView: BaseView {
             $0.width.equalTo(UIScreen.main.bounds.width * 242 / 375)
         }
     }
-
-    // MARK: - Methods (Getter & Setter)
-    public var titleLabel: UILabel {
-        get { _titleLabel }
-        set { _titleLabel.text = newValue.text; _titleLabel.textColor = newValue.textColor }
+    
+    // MARK: - Actions
+    private func setupActions() {
+        _submitButton.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
     }
-
-    public var subTitleLabel: UILabel {
-        get { _subTitleLabel }
-        set { _subTitleLabel.text = newValue.text; _subTitleLabel.textColor = newValue.textColor }
+    
+    @objc private func submitTapped() {
+        self.removeFromSuperview()
     }
-
-    public var submitButton: UIButton {
-        get { _submitButton }
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
+    // MARK: - Getter
+    public var titleLabel: UILabel { _titleLabel }
+    public var subTitleLabel: UILabel { _subTitleLabel }
+    public var submitButton: UIButton { _submitButton }
 }
