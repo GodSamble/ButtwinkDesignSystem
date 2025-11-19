@@ -41,9 +41,11 @@ public final class AlertView_TwoOption: BaseView {
         _titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
         _titleLabel.textColor = UIColor(hex: "#FFFFFF")
         _titleLabel.numberOfLines = 2
+        _titleLabel.textAlignment = .center
         _subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
         _subTitleLabel.textColor = UIColor(hex: "#A8A8A8")
         _subTitleLabel.numberOfLines = 2
+        _subTitleLabel.textAlignment = .center
         
         _submitButton.layer.cornerRadius = 3
         _submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
@@ -91,7 +93,7 @@ public final class AlertView_TwoOption: BaseView {
         containerView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalTo(self.safeAreaLayoutGuide.snp.centerY)
-            $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812)
+            $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812).offset(80)
             $0.width.equalTo(UIScreen.main.bounds.width * 280 / 375)
         }
 
@@ -107,14 +109,14 @@ public final class AlertView_TwoOption: BaseView {
         }
 
         _specialButton.snp.makeConstraints {
-            $0.top.equalTo(_subTitleLabel.snp.bottom).offset(36)
+            $0.top.equalTo(_subTitleLabel.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(16)
             $0.height.equalTo(UIScreen.main.bounds.height * 37 / 812)
             $0.trailing.equalTo(containerView.snp.centerX).offset(-8)
         }
 
         _submitButton.snp.makeConstraints {
-            $0.top.equalTo(_subTitleLabel.snp.bottom).offset(36)
+            $0.top.equalTo(_subTitleLabel.snp.bottom).offset(20)
             $0.leading.equalTo(containerView.snp.centerX).offset(8)
             $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(UIScreen.main.bounds.height * 37 / 812)

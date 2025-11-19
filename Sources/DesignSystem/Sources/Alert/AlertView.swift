@@ -81,8 +81,9 @@ public final class AlertView: BaseView {
         containerView.addSubview(_submitButton)
 
         containerView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812)
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalTo(self.safeAreaLayoutGuide.snp.centerY)
+            $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812).offset(80)
             $0.width.equalTo(UIScreen.main.bounds.width * 280 / 375)
         }
 
