@@ -40,8 +40,10 @@ public final class AlertView_TwoOption: BaseView {
         
         _titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
         _titleLabel.textColor = UIColor(hex: "#FFFFFF")
+        _titleLabel.numberOfLines = 2
         _subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
         _subTitleLabel.textColor = UIColor(hex: "#A8A8A8")
+        _subTitleLabel.numberOfLines = 2
         
         _submitButton.layer.cornerRadius = 3
         _submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
@@ -73,7 +75,7 @@ public final class AlertView_TwoOption: BaseView {
             _specialButton.setTitle("세트지우기", for: .normal)
         case .quit:
             _titleLabel.text = "작성하신 기록이 사라집니다!"
-            _subTitleLabel.text = "저장 안할 시에,\n첫 화면으로 돌아가게 됩니다."
+            _subTitleLabel.text = "저장 안할 시에, \n첫 화면으로 돌아가게 됩니다."
             _specialButton.setTitle("삭제하기", for: .normal)
         }
     }
@@ -84,12 +86,15 @@ public final class AlertView_TwoOption: BaseView {
         containerView.addSubview(_subTitleLabel)
         containerView.addSubview(_specialButton)
         containerView.addSubview(_submitButton)
-
+        
+        
         containerView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.height.equalTo(UIScreen.main.bounds.height * 235 / 812)
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalTo(self.safeAreaLayoutGuide.snp.centerY)
+            $0.height.equalTo(UIScreen.main.bounds.height * 177 / 812)
             $0.width.equalTo(UIScreen.main.bounds.width * 280 / 375)
         }
+
 
         _titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(42)
