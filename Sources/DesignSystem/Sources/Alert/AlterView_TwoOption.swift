@@ -24,6 +24,7 @@ public final class AlertView_TwoOption: BaseView {
         case logout
         case withDraw
         case erase
+        case quit
     }
 
     public init(frame: CGRect, alertType: AlertView_TwoOption.AlertType_Two_Option) {
@@ -34,24 +35,25 @@ public final class AlertView_TwoOption: BaseView {
     // MARK: - Set UIComponents
     public override func setStyles() {
         backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        containerView.backgroundColor = UIColor(hex: "#202020")
+        containerView.backgroundColor = UIColor(hex: "#2E2E2E")
         containerView.layer.cornerRadius = 20
-
+        
         _titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
+        _titleLabel.textColor = UIColor(hex: "#FFFFFF")
         _subTitleLabel.font = .systemFont(ofSize: 12, weight: .medium)
-        _subTitleLabel.textColor = UIColor(hex: "#808080")
-
+        _subTitleLabel.textColor = UIColor(hex: "#A8A8A8")
+        
         _submitButton.layer.cornerRadius = 3
         _submitButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         _submitButton.backgroundColor = UIColor(hex: "#E0E5EB")
         _submitButton.setTitle("닫기", for: .normal)
-        _submitButton.setTitleColor(UIColor.black, for: .normal)
-
+        _submitButton.setTitleColor(.black, for: .normal)
+        
         _specialButton.layer.cornerRadius = 3
         _specialButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        _specialButton.setTitleColor(UIColor.black, for: .normal)
         _specialButton.backgroundColor = UIColor(hex: "#82F80E")
-
+        _specialButton.setTitleColor(.black, for: .normal)
+        
         switch alertType {
         case .refund:
             _titleLabel.text = "환불 하시겠습니까?"
@@ -69,6 +71,10 @@ public final class AlertView_TwoOption: BaseView {
             _titleLabel.text = "이 세트를 지우시겠어요?"
             _subTitleLabel.text = "이 세트를 지우시겠어요?"
             _specialButton.setTitle("세트지우기", for: .normal)
+        case .quit:
+            _titleLabel.text = "작성하신 기록이 사라집니다!"
+            _subTitleLabel.text = "저장 안할 시에,\n첫 화면으로 돌아가게 됩니다."
+            _specialButton.setTitle("삭제하기", for: .normal)
         }
     }
 
@@ -97,16 +103,16 @@ public final class AlertView_TwoOption: BaseView {
 
         _specialButton.snp.makeConstraints {
             $0.top.equalTo(_subTitleLabel.snp.bottom).offset(36)
-            $0.centerX.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
             $0.height.equalTo(UIScreen.main.bounds.height * 37 / 812)
-            $0.width.equalTo(UIScreen.main.bounds.width * 242 / 375)
+            $0.trailing.equalTo(containerView.snp.centerX).offset(-8)
         }
 
         _submitButton.snp.makeConstraints {
-            $0.top.equalTo(_specialButton.snp.bottom).offset(16)
-            $0.centerX.equalToSuperview()
+            $0.top.equalTo(_subTitleLabel.snp.bottom).offset(36)
+            $0.leading.equalTo(containerView.snp.centerX).offset(8)
+            $0.trailing.equalToSuperview().offset(-16)
             $0.height.equalTo(UIScreen.main.bounds.height * 37 / 812)
-            $0.width.equalTo(UIScreen.main.bounds.width * 242 / 375)
         }
     }
 
