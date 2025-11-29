@@ -59,6 +59,7 @@ public extension UIImage {
         public static let bdink_icon          = UIImage(name: "Bdink_Icon")
         public static let bdink_gray          = UIImage(name: "bdink_gray")
         public static let placeholder         = UIImage(name: "placeholder")
+        public static let anatomy_none        = UIImage(name: "Anatomy_none")
         public static let anatomy             = UIImage(name: "Anatomy")
         public static let anatomy1            = UIImage(name: "Anatomy1")
         public static let anatomy2            = UIImage(name: "Anatomy2")
