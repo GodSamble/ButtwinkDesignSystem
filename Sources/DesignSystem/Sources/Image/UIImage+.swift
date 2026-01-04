@@ -64,6 +64,20 @@ public extension UIImage {
         public static let anatomy1            = UIImage(name: "Anatomy1")
         public static let anatomy2            = UIImage(name: "Anatomy2")
         public static let anatomy3            = UIImage(name: "Anatomy3")
+        
+        public static let anatomy_Front1      = UIImage(name: "Anatomy_Front1")
+        public static let anatomy_Front2      = UIImage(name: "Anatomy_Front2")
+        public static let anatomy_Front3      = UIImage(name: "Anatomy_Front3")
+        public static let anatomy_Front4      = UIImage(name: "Anatomy_Front4")
+        public static let anatomy_Front5      = UIImage(name: "Anatomy_Front5")
+        public static let anatomy_Front6      = UIImage(name: "Anatomy_Front6")
+        public static let anatomy_Front7      = UIImage(name: "Anatomy_Front7")
+        public static let anatomy_Back1       = UIImage(name: "Anatomy_Back1")
+        public static let anatomy_Back2       = UIImage(name: "Anatomy_Back2")
+        public static let anatomy_Back3       = UIImage(name: "Anatomy_Back3")
+        public static let anatomy_Back4       = UIImage(name: "Anatomy_Back4")
+        public static let anatomy_Back5       = UIImage(name: "Anatomy_Back5")
+        public static let anatomy_Back6       = UIImage(name: "Anatomy_Back6")
     }
     
     enum Btn {
