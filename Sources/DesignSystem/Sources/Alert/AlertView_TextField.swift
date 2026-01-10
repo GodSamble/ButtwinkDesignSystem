@@ -18,6 +18,8 @@ public final class CommonTextAlertView: UIView {
         case review
         case report
         case memo
+        case feedbackToMember
+        case feedbackFromTrainer
     }
 
     // MARK: - UI Components
@@ -166,6 +168,12 @@ public final class CommonTextAlertView: UIView {
         case .memo:
             titleLabel.text = "자유로운 메모장으로 이용가능합니다. 작성하신 메모는 캘린더에 저장됩니다."
             submitButton.setTitle("메모 등록하기", for: .normal)
+        case .feedbackToMember:
+            titleLabel.text = "회원님에게 피드백을 남길 수 있어요"
+            submitButton.setTitle("피드백 등록", for: .normal)
+        case .feedbackFromTrainer:
+            titleLabel.text = "트레이너님께서 피드백을 주셨어요! 메모에 반영해보는건 어떨까요?"
+            submitButton.setTitle("좋아요", for: .normal)
         }
     }
 }
