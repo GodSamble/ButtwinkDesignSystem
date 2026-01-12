@@ -76,9 +76,9 @@ public final class AlertView_TwoOption: BaseView {
             _subTitleLabel.text = "이 세트를 지우시겠어요?"
             _specialButton.setTitle("세트지우기", for: .normal)
         case .quit:
-            _titleLabel.text = "작성하신 기록이 사라집니다!"
-            _subTitleLabel.text = "저장 안할 시에, \n첫 화면으로 돌아가게 됩니다."
-            _specialButton.setTitle("삭제하기", for: .normal)
+            _titleLabel.text = "홈 화면으로 돌아갑니다"
+            _subTitleLabel.text = "'오늘의 운동일지'의 경우, \n작성중인 내용이 유실 됩니다"
+            _specialButton.setTitle("돌아가기", for: .normal)
         }
     }
 
