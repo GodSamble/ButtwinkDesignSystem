@@ -49,6 +49,8 @@ public extension UIImage {
         public static let check               = UIImage(name: "ic_check")
         public static let memo_completed      = UIImage(name: "ic_file-text")
         public static let memo_noncompleted   = UIImage(name: "ic_file")
+        public static let bell_on             = UIImage(name: "ic_bell_on")
+        public static let bell_off            = UIImage(name: "ic_bell_off")
     }
  
     enum Img {
