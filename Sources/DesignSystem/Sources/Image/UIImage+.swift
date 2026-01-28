@@ -11,6 +11,7 @@ public extension UIImage {
     enum Icon {
         public static let chart               = UIImage(name: "ic_chart")
         public static let complete            = UIImage(name: "ic_complete")
+        public static let comment             = UIImage(name: "ic_comment")
         public static let fail                = UIImage(name: "ic_fail")
         public static let feed                = UIImage(name: "ic_feed")
         public static let info                = UIImage(name: "ic_info")
