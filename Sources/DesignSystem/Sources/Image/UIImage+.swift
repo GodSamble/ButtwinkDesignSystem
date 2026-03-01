@@ -141,7 +141,7 @@ public extension UIImage {
 
 extension UIImage {
     convenience init?(name: String) {
-        self.init(named: name)
+        self.init(named: name, in: .module, with: nil)
     }
 }
 
